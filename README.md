@@ -7,8 +7,10 @@ https://docs.docker.com/samples/rails/
 - Dockerfile
 
 - Gemfile
+```
 source 'https://rubygems.org'
 ruby '2.7.5'
+```
 
 - touch Gemfile.lock
 
@@ -16,7 +18,7 @@ ruby '2.7.5'
 
 - entrypoint.sh
 
-### run
+### run:
 ```
 $ docker-compose run --no-deps app rails new . --force --database=postgresql
 $ docker-compose build
