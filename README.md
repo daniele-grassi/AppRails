@@ -17,4 +17,7 @@ ruby '2.7.5'
 - entrypoint.sh
 
 ### run
-docker-compose run --no-deps app rails new . --force --database=postgresql
+```
+$ docker-compose run --no-deps app rails new . --force --database=postgresql
+$ docker-compose build
+```
