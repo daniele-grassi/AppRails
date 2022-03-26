@@ -1,6 +1,8 @@
 # AppRails
+- [Create a new Rails 6 app with docker](#create-a-new-rails-6-app-with-docker)
+- [Setup Webpacker](#setup-webpacker)
 
-## 1st configuration step to create a new Rails application with docker
+## Create a new Rails 6 app with docker
 
 [Docker samples - Rails](https://docs.docker.com/samples/rails/) - ( Made some changes )
 
