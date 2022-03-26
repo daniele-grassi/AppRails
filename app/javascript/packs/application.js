@@ -11,3 +11,15 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// Requires static assets
+// to use it image_pack_tag 'media/images/my-image.jpg'
+const images = require.context("../images", true)
+const imagePath = name => images(name, true)
+
+// JS
+import "jquery"
+import "bootstrap"
+
+// CSS
+import "stylesheets/home.scss"

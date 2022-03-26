@@ -1,59 +1,34 @@
 # AppRails
 
-## 1st configuration step to create a new application with docker
-https://docs.docker.com/samples/rails/
+- [1st configuration step to create a new Rails application with docker](docs/FIRST_CONFIGURATION.md)
 
-Made some changes!
+## Setting up Bootstrap
 
-### create:
-- Dockerfile
-
-- Gemfile
 ```
-source 'https://rubygems.org'
-gem 'rails', '~> 6.1.5'
+$ yarn add bootstrap@5.1.3
+$ yarn add jquery@3.6.0
+$ yarn add @popperjs/core@^2.10.2
 ```
 
-- touch Gemfile.lock
+- modify app/javascript/packs/`application.js`
 
-- docker-compose.yml
+```
+...
 
-- entrypoint.sh
+// JS
+// ADD LINES
+import "jquery"
+import "bootstrap"
 
-### run:
-```
-$ docker-compose run --no-deps app rails new . --force --database=postgresql
-```
-delete container and images
-```
-$ docker-compose build
+...
 ```
 
-### modify config/database.yml
+- modify app/javascript/packs/`application.scss`
+
 ```
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+// ADD LINES
+@import "bootstrap"
 
-development:
-  <<: *default
-  database: app_development
-
-
-test:
-  <<: *default
-  database: app_test
+...
 ```
 
-### run:
-```
-$ docker-compose up
-$ docker-compose run app rake db:create
-```
-
-### DONE!
-http://localhost:3000/
