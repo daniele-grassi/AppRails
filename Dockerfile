@@ -1,7 +1,9 @@
 FROM ruby:2.7.5
 
-RUN apt-get update -qq && apt-get install -y yarn nodejs postgresql-client
-
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y nodejs npm postgresql-client
+RUN npm install --global yarn
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
