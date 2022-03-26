@@ -1,9 +1,14 @@
 # AppRails
+![ruby version](https://img.shields.io/badge/ruby-2.7.5-green)
+![rails version](https://img.shields.io/badge/rails-6.1.5-red)
+![webpacker version](https://img.shields.io/badge/webpacker-5.4.3-blue)
+
+
 - [Create a new Rails 6 app with docker](#create-a-new-rails-6-app-with-docker)
 - [Setup Webpacker](#setup-webpacker)
 - [Setting up Bootstrap](#setting-up-bootstrap)
 
-## Create a new Rails 6 app with docker
+## Create a new Rails app with docker
 
 [Docker samples - Rails](https://docs.docker.com/samples/rails/) - ( Made some changes )
 
@@ -11,10 +16,10 @@
 - `Dockerfile`
 
 - `Gemfile`
-```
-source 'https://rubygems.org'
-gem 'rails', '~> 6.1.5'
-```
+  ```
+  source 'https://rubygems.org'
+  gem 'rails', '~> 6.1.5'
+  ```
 
 - touch `Gemfile.lock`
 
@@ -27,7 +32,7 @@ gem 'rails', '~> 6.1.5'
 $ docker-compose run --no-deps app rails new . --force --database=postgresql
 ```
 ### 3. Delete:
-`container` and `images`
+- `container` and `images`
 ### 4. Run:
 ```
 $ docker-compose build
@@ -65,9 +70,9 @@ http://localhost:3000/
 ## Setup Webpacker
 
 - modify app/views/layouts/`application.html.erb`
-```
-stylesheet_link_tag => stylesheet_pack_tag
-```
+  ```
+  stylesheet_link_tag => stylesheet_pack_tag
+  ```
 
 - create `stylesheets` folder in app/javascript/packs
 - move `application.css` to app/javascript/packs
@@ -78,36 +83,36 @@ stylesheet_link_tag => stylesheet_pack_tag
 
 - setting up app/javascript/packs/`application.js`
 
-```
-...
+  ```
+  ...
 
-// Requires static assets
-// to use it image_pack_tag 'media/images/my-image.jpg'
-const images = require.context("../images", true)
-const imagePath = name => images(name, true)
+  // Requires static assets
+  // to use it image_pack_tag 'media/images/my-image.jpg'
+  const images = require.context("../images", true)
+  const imagePath = name => images(name, true)
 
-// JS
+  // JS
 
-// CSS
-```
+  // CSS
+  ```
 
 ### For DEV use HMR:
 - modify config/`webpacker.yml`
-```
-dev_server:
-    // SET TO TRUE
-    hmr: true
+  ```
+  dev_server:
+      // SET TO TRUE
+      hmr: true
 
-    watch_options: 
-      // ADD LINES
-      aggregateTimeout: 300
-      poll: 500
-```
+      watch_options: 
+        // ADD LINES
+        aggregateTimeout: 300
+        poll: 500
+  ```
 
 - run in other terminal
-```
-$ docker-compose exec app ./bin/webpack-dev-server
-```
+  ```
+  $ docker-compose exec app ./bin/webpack-dev-server
+  ```
 
 ## Setting up Bootstrap
 
@@ -118,24 +123,21 @@ $ yarn add @popperjs/core@^2.10.2
 ```
 
 - modify app/javascript/packs/`application.js`
+  ```
+  ...
 
-```
-...
+  // JS
+  // ADD LINES
+  import "jquery"
+  import "bootstrap"
 
-// JS
-// ADD LINES
-import "jquery"
-import "bootstrap"
-
-...
-```
+  ...
+  ```
 
 - modify app/javascript/packs/`application.scss`
+  ```
+  // ADD LINES
+  @import "bootstrap"
 
-```
-// ADD LINES
-@import "bootstrap"
-
-...
-```
-
+  ...
+  ```
