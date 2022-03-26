@@ -108,6 +108,7 @@ http://localhost:3000/
         aggregateTimeout: 300
         poll: 500
   ```
+- `reload` container every time you update this file
 
 - run in other terminal
   ```
