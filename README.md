@@ -6,7 +6,7 @@
 
 - [Create a new Rails 6 app with docker](#create-a-new-rails-6-app-with-docker)
 - [Setup Webpacker](#setup-webpacker)
-- [Setting up Bootstrap](#setting-up-bootstrap)
+- [Setup Bootstrap](#setup-bootstrap)
 
 ## Create a new Rails app with docker
 
@@ -114,7 +114,7 @@ http://localhost:3000/
   $ docker-compose exec app ./bin/webpack-dev-server
   ```
 
-## Setting up Bootstrap
+## Setup Bootstrap
 
 ```
 $ yarn add bootstrap@5.1.3
